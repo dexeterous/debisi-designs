@@ -165,30 +165,48 @@ export default function ProjectDetailPage({ params }: { params: { category: stri
                 : "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
             }
           >
-            {project.images.map((image, index) => (
-              <div
-                key={index}
-                className={
-                  params.category === "branding"
-                    ? "relative w-full aspect-[16/10] rounded-xl overflow-hidden cursor-pointer group shadow-md hover:shadow-lg transition-shadow"
-                    : "relative aspect-square rounded-xl overflow-hidden cursor-pointer group shadow-md hover:shadow-lg transition-shadow"
-                }
-                onClick={() => setSelectedImage(image)}
-              >
-                <Image
-                  src={image || "/placeholder.svg"}
-                  alt={`${project.title} - Image ${index + 1}`}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-                  <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full text-black-100 text-xs font-medium flex items-center gap-1.5">
-                    <i className="ri-zoom-in-line"></i>
-                    View
-                  </span>
+            {project.images.map((image, index) =>
+              params.category === "branding" ? (
+                <div
+                  key={index}
+                  className="relative w-full rounded-xl overflow-hidden cursor-pointer group shadow-md hover:shadow-lg transition-shadow"
+                  onClick={() => setSelectedImage(image)}
+                >
+                  <Image
+                    src={image || "/placeholder.svg"}
+                    alt={`${project.title} - Image ${index + 1}`}
+                    width={1200}
+                    height={800}
+                    className="w-full h-auto group-hover:scale-[1.02] transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full text-black-100 text-xs font-medium flex items-center gap-1.5">
+                      <i className="ri-zoom-in-line"></i>
+                      View
+                    </span>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ) : (
+                <div
+                  key={index}
+                  className="relative aspect-square rounded-xl overflow-hidden cursor-pointer group shadow-md hover:shadow-lg transition-shadow"
+                  onClick={() => setSelectedImage(image)}
+                >
+                  <Image
+                    src={image || "/placeholder.svg"}
+                    alt={`${project.title} - Image ${index + 1}`}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full text-black-100 text-xs font-medium flex items-center gap-1.5">
+                      <i className="ri-zoom-in-line"></i>
+                      View
+                    </span>
+                  </div>
+                </div>
+              ),
+            )}
           </div>
         </div>
       </section>

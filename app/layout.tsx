@@ -2,7 +2,6 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Suspense } from "react"
 import "./globals.css"
-import "./designpro-styles.css"
 
 export const metadata: Metadata = {
   title: "debisidesigns",
