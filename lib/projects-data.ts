@@ -295,8 +295,13 @@ export const projects: Project[] = [
     client: "Fateer wa teer Restaurant",
     year: "2024",
     services: ["Restaurant Branding", "Arabic Design", "Menu Design", "Cultural Branding"],
-    thumbnail: "/fateer-wa-teer-thumbnail.jpg",
-    images: ["/fateer-wa-teer-logo.jpg", "/fateer-wa-teer-menu.jpg", "/fateer-wa-teer-interior.jpg"],
+    thumbnail: "/fateer-wa-teer-thumbnail.png",
+    images: [
+      "/fateer-wa-teer-1.png",
+      "/fateer-wa-teer-2.jpg",
+      "/fateer-wa-teer-3.jpg",
+      "/fateer-wa-teer-4.png",
+    ],
     challenge:
       "Create an authentic Arabic restaurant brand identity that honors traditional Kuwaiti culinary culture while appealing to modern diners.",
     solution:
