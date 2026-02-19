@@ -161,7 +161,7 @@ export default function ProjectDetailPage({ params }: { params: { category: stri
           <div
             className={
               params.category === "branding"
-                ? "flex flex-col items-center gap-6 max-w-4xl mx-auto"
+                ? "flex flex-col items-center gap-6"
                 : "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
             }
           >
