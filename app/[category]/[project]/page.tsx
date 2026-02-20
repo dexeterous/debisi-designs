@@ -124,49 +124,19 @@ export default function ProjectDetailPage({ params }: { params: { category: stri
         </div>
       </section>
 
-      {/* PDF Viewer Section */}
-      {project.pdfUrl && (
-        <section className="py-12 lg:py-20 bg-white">
-          <div className="container">
-            <h2 className="text-3xl lg:text-4xl font-semibold text-black-100 mb-8 font-bricolage">
-              {project.slug === "calendar-2025-masaha-global" ? "View Calendar" : "View Project"}
-            </h2>
-            <div className="max-w-4xl mx-auto">
-              <div className="bg-background rounded-2xl border border-[#e5e5e5] overflow-hidden shadow-lg">
-                <iframe
-                  src={`${project.pdfUrl}#toolbar=1&navpanes=0&scrollbar=1`}
-                  className="w-full aspect-[1/1.414]"
-                  title={`${project.title} PDF`}
-                />
-              </div>
-              <div className="mt-6 flex justify-center">
-                <a
-                  href={project.pdfUrl}
-                  download
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors font-medium"
-                >
-                  <i className="ri-download-line"></i>
-                  <span>Download PDF</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* Project Images Gallery */}
       <section className="py-12 lg:py-20">
         <div className="container">
           <h2 className="text-3xl lg:text-4xl font-semibold text-black-100 mb-12 font-bricolage">Project Gallery</h2>
           <div
             className={
-              params.category === "branding"
+              params.category === "branding" || params.category === "print-design"
                 ? "flex flex-col items-center gap-6"
                 : "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
             }
           >
             {project.images.map((image, index) =>
-              params.category === "branding" ? (
+              params.category === "branding" || params.category === "print-design" ? (
                 <div
                   key={index}
                   className="relative w-full rounded-xl overflow-hidden cursor-pointer group shadow-md hover:shadow-lg transition-shadow"
@@ -210,6 +180,36 @@ export default function ProjectDetailPage({ params }: { params: { category: stri
           </div>
         </div>
       </section>
+
+      {/* PDF Viewer Section */}
+      {project.pdfUrl && (
+        <section className="py-12 lg:py-20 bg-white">
+          <div className="container">
+            <h2 className="text-3xl lg:text-4xl font-semibold text-black-100 mb-8 font-bricolage">
+              {project.slug === "calendar-2025-masaha-global" ? "View Calendar" : "View Project"}
+            </h2>
+            <div className="max-w-4xl mx-auto">
+              <div className="bg-background rounded-2xl border border-[#e5e5e5] overflow-hidden shadow-lg">
+                <iframe
+                  src={`${project.pdfUrl}#toolbar=1&navpanes=0&scrollbar=1`}
+                  className="w-full aspect-[1/1.414]"
+                  title={`${project.title} PDF`}
+                />
+              </div>
+              <div className="mt-6 flex justify-center">
+                <a
+                  href={project.pdfUrl}
+                  download
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors font-medium"
+                >
+                  <i className="ri-download-line"></i>
+                  <span>Download PDF</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Design Process Section */}
       {(project.challenge || project.solution || project.process || project.results) && (

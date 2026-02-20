@@ -150,7 +150,7 @@ export default function SocialMediaGalleryPage() {
                 onClick={() => openLightbox(index)}
                 className="group block bg-white rounded-2xl overflow-hidden border border-[#e5e5e5] hover:border-primary transition-all duration-300 hover:shadow-lg w-full cursor-pointer"
               >
-                <div className="relative aspect-[4/5] overflow-hidden w-full">
+                <div className="relative aspect-square overflow-hidden w-full">
                   <Image
                     src={image.src || "/placeholder.svg"}
                     alt={image.alt}
