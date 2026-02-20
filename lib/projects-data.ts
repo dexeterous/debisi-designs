@@ -369,9 +369,7 @@ export const projects: Project[] = [
     services: ["Brochure Design", "Product Catalog", "Print Layout", "Technical Specifications"],
     thumbnail: "/masaha-rental-brochure-thumbnail.png", // Updated thumbnail to new image
     images: [
-      "/masaha-rental-brochure-cover.jpg",
-      "/masaha-rental-brochure-equipment.jpg",
-      "/masaha-rental-brochure-specs.jpg",
+      "/masaha-rental-brochure-full.jpg",
     ],
     pdfUrl: "/masaha-rental-equipment-brochure.pdf", // Added pdfUrl to embed the PDF
     challenge:
