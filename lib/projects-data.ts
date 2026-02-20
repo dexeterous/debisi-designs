@@ -430,7 +430,8 @@ export const projects: Project[] = [
     year: "2024",
     services: ["Magazine Design", "Layout Design", "Print Production", "Content Organization"],
     thumbnail: "/al-waha-magazine-thumbnail.jpg",
-    images: ["/al-waha-magazine-full.jpg"],
+    images: ["/al-waha-magazine-full-new.jpg"],
+    pdfUrl: "/al-waha-magazine.pdf",
     challenge:
       "Design a bilingual Arabic-language magazine that documents the Arabic Language Department\u2019s achievements, events, and lesson plans across two semesters while maintaining a modern, engaging look appropriate for an educational institution.",
     solution:
