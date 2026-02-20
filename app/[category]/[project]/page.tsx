@@ -130,13 +130,13 @@ export default function ProjectDetailPage({ params }: { params: { category: stri
           <h2 className="text-3xl lg:text-4xl font-semibold text-black-100 mb-12 font-bricolage">Project Gallery</h2>
           <div
             className={
-              params.category === "branding"
+              params.category === "branding" || params.category === "print-design"
                 ? "flex flex-col items-center gap-6"
                 : "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
             }
           >
             {project.images.map((image, index) =>
-              params.category === "branding" ? (
+              params.category === "branding" || params.category === "print-design" ? (
                 <div
                   key={index}
                   className="relative w-full rounded-xl overflow-hidden cursor-pointer group shadow-md hover:shadow-lg transition-shadow"
