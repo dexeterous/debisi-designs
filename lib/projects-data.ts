@@ -396,8 +396,8 @@ export const projects: Project[] = [
     client: "Masaha Global",
     year: "2024",
     services: ["Calendar Design", "Layout Design", "Print Production", "Brand Integration"],
-    thumbnail: "/2025-calendar-thumbnail.jpg",
-    images: ["/2025-calendar-thumbnail.jpg"], // Updated to a single representative image
+    thumbnail: "/2025-calendar-thumbnail-new.jpg",
+    images: ["/2025-calendar-full.jpg"],
     pdfUrl: "/2025-wall-calendar.pdf", // Added PDF link
     challenge:
       "Design an attractive and functional 2025 wall calendar that serves as both a practical tool and a year-round brand reminder for Masaha Global's clients and partners in Kuwait.",
