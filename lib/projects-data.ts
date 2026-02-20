@@ -421,6 +421,38 @@ export const projects: Project[] = [
     },
   },
   {
+    id: "al-waha-schools-magazine",
+    title: "Al Waha Schools \u2013 Magazine",
+    category: "print-design",
+    description:
+      "Arabic Language Department achievements magazine for Al Waha Schools, Kuwait Ministry of Education, covering the 2023\u20132024 academic year.",
+    client: "Al Waha Schools \u2013 Kuwait Ministry of Education",
+    year: "2024",
+    services: ["Magazine Design", "Layout Design", "Print Production", "Content Organization"],
+    thumbnail: "/al-waha-magazine-thumbnail.jpg",
+    images: ["/al-waha-magazine-full.jpg"],
+    challenge:
+      "Design a bilingual Arabic-language magazine that documents the Arabic Language Department\u2019s achievements, events, and lesson plans across two semesters while maintaining a modern, engaging look appropriate for an educational institution.",
+    solution:
+      "Created a polished landscape-format magazine with a teal-to-blue gradient theme, clear section dividers, photo collages of school events, and structured data tables\u2014all wrapped in a professional cover featuring the school building and Ministry of Education branding.",
+    process: [
+      "Content Gathering \u2013 Collected department reports, event photos, and lesson schedules",
+      "Layout Design \u2013 Developed a landscape grid suited for RTL Arabic reading",
+      "Visual Design \u2013 Applied gradient colour scheme with Ministry and school branding",
+      "Photo Integration \u2013 Arranged event photography into dynamic collage layouts",
+      "Print Preparation \u2013 Exported high-resolution files for professional printing",
+    ],
+    results:
+      "The magazine was distributed to faculty, parents, and ministry officials, effectively showcasing the department\u2019s accomplishments and strengthening the school\u2019s reputation.",
+    tools: ["Adobe InDesign", "Adobe Illustrator", "Adobe Photoshop"],
+    testimonial: {
+      quote:
+        "The magazine captured our department\u2019s achievements beautifully. It made a great impression on parents and ministry officials alike.",
+      author: "Al Waha Schools Team",
+      role: "Client",
+    },
+  },
+  {
     id: "corporate-brochure",
     title: "Corporate Brochure Design",
     category: "print-design",
