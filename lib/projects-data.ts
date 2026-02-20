@@ -335,9 +335,7 @@ export const projects: Project[] = [
     services: ["Company Profile Design", "Layout Design", "Print Production", "Content Organization"],
     thumbnail: "/masaha-company-profile-thumbnail.png",
     images: [
-      "/masaha-company-profile-cover.jpg",
-      "/masaha-company-profile-spreads.jpg",
-      "/masaha-company-profile-details.jpg",
+      "/masaha-company-profile-full.jpg",
     ],
     pdfUrl: "/masaha-company-profile.pdf",
     challenge:
