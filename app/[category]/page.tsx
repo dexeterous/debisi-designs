@@ -59,10 +59,53 @@ export default function CategoryPage({ params }: { params: { category: string } 
       <section className="pb-20">
         <div className="container">
           {projects.length === 0 ? (
-            <div className="text-center py-20">
-              <p className="text-xl text-black-100">No projects available in this category yet.</p>
-              <Link href="/" className="inline-block mt-6 text-primary hover:underline">
-                Browse other categories
+            <div className="flex flex-col items-center justify-center py-20 text-center">
+              <div className="relative w-40 h-40 mb-8">
+                <div className="absolute inset-0 rounded-full bg-primary/5 animate-pulse" />
+                <div className="absolute inset-3 rounded-full bg-primary/10" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <svg
+                    width="64"
+                    height="64"
+                    viewBox="0 0 64 64"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="text-primary"
+                  >
+                    <path
+                      d="M32 8C18.745 8 8 18.745 8 32s10.745 24 24 24 24-10.745 24-24S45.255 8 32 8z"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      fill="none"
+                    />
+                    <path
+                      d="M32 18v14l8 8"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <circle cx="32" cy="32" r="3" fill="currentColor" />
+                    <path
+                      d="M20 6l2 4M44 6l-2 4M32 2v4"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <h2 className="text-3xl font-semibold text-black-100 mb-3 font-bricolage">Coming Soon</h2>
+              <p className="text-lg text-black-100/60 max-w-md leading-relaxed">
+                Exciting projects are in the works. Check back soon for new additions to this category.
+              </p>
+              <Link
+                href="/"
+                className="inline-flex items-center gap-2 mt-8 px-6 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors font-medium"
+              >
+                <i className="ri-arrow-left-line"></i>
+                <span>Browse other categories</span>
               </Link>
             </div>
           ) : (
