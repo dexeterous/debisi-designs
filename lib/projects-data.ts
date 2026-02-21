@@ -420,37 +420,7 @@ export const projects: Project[] = [
       role: "Client",
     },
   },
-  {
-    id: "corporate-brochure",
-    title: "Corporate Brochure Design",
-    category: "print-design",
-    description: "Professional brochure design for corporate clients",
-    client: "Corporate Solutions",
-    year: "2024",
-    services: ["Brochure Design", "Print Layout", "Typography"],
-    thumbnail: "/corporate-brochure.jpg",
-    images: ["/corporate-brochure-cover.jpg", "/corporate-brochure-inside-pages.jpg", "/corporate-brochure-mockup.jpg"],
-    challenge:
-      "Design a professional corporate brochure that effectively communicates complex business solutions while maintaining visual appeal and readability for diverse stakeholders.",
-    solution:
-      "Created a clean, structured layout with clear information hierarchy, professional typography, and strategic use of white space. Incorporated infographics to simplify complex data and maintain reader engagement.",
-    process: [
-      "Content Strategy - Organized information architecture and messaging",
-      "Layout Design - Developed grid system and page templates",
-      "Visual Design - Applied brand colors and typography",
-      "Print Preparation - Prepared files for professional printing",
-      "Quality Control - Reviewed proofs and final production",
-    ],
-    results:
-      "The brochure successfully communicated Corporate Solutions' value proposition, resulting in a 40% increase in qualified leads at trade shows and client meetings.",
-    tools: ["Adobe InDesign", "Adobe Illustrator", "Adobe Photoshop"],
-    testimonial: {
-      quote:
-        "The brochure design perfectly balances professionalism with visual appeal. It's become our most effective sales tool.",
-      author: "Michael Chen",
-      role: "Marketing Director, Corporate Solutions",
-    },
-  },
+
   {
     id: "al-waha-schools-magazine",
     title: "Al Waha Schools – Magazine",
