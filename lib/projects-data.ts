@@ -965,6 +965,57 @@ export const projects: Project[] = [
     tools: ["WordPress", "PHP", "MySQL", "JavaScript"],
   },
 
+  // Photography Projects
+  {
+    id: "alia-landscape-company",
+    title: "Alia Landscape Company",
+    category: "photography",
+    description:
+      "On-site photography documenting Alia Botanicals landscape maintenance operations, capturing the team at work across residential properties in Kuwait.",
+    client: "Alia Botanicals",
+    year: "2024",
+    services: ["On-Site Photography", "Corporate Documentation", "Brand Photography", "Outdoor Shooting"],
+    thumbnail: "/alia-landscape-01.jpg",
+    images: [
+      "/alia-landscape-01.jpg",
+      "/alia-landscape-10.jpg",
+      "/alia-landscape-08.jpg",
+      "/alia-landscape-15.jpg",
+      "/alia-landscape-04.jpg",
+      "/alia-landscape-05.jpg",
+      "/alia-landscape-02.jpg",
+      "/alia-landscape-03.jpg",
+      "/alia-landscape-12.jpg",
+      "/alia-landscape-06.jpg",
+      "/alia-landscape-09.jpg",
+      "/alia-landscape-07.jpg",
+      "/alia-landscape-16.jpg",
+      "/alia-landscape-11.jpg",
+      "/alia-landscape-13.jpg",
+      "/alia-landscape-14.jpg",
+      "/alia-landscape-17.jpg",
+    ],
+    challenge:
+      "Capture the day-to-day operations of Alia Botanicals\u2019 landscape maintenance team across a large residential property in Kuwait, showcasing professionalism, branded uniforms, equipment, and quality of work in harsh outdoor conditions.",
+    solution:
+      "Conducted a full-day on-site photography shoot using elevated angles and close-up perspectives to document hedge trimming, lawn care, and team coordination\u2014highlighting the company\u2019s branded presence and attention to detail.",
+    process: [
+      "Location Scouting \u2013 Identified key vantage points across the property",
+      "Shoot Planning \u2013 Coordinated with the team to capture natural workflow",
+      "Photography \u2013 Shot aerial, mid-range, and close-up perspectives",
+      "Brand Focus \u2013 Emphasized branded uniforms, signage, and vehicle wrap",
+      "Post-Production \u2013 Colour-corrected and edited for consistent, vibrant output",
+    ],
+    results:
+      "Delivered a comprehensive library of professional photographs used for social media, the company website, and marketing materials\u2014strengthening Alia Botanicals\u2019 visual brand identity.",
+    tools: ["Canon EOS R5", "Adobe Lightroom", "Adobe Photoshop"],
+    testimonial: {
+      quote:
+        "The photos perfectly capture the quality of our work and the professionalism of our team. We use them across all our marketing channels.",
+      author: "Alia Botanicals Team",
+      role: "Client",
+    },
+  },
 ]
 
 export function getProjectsByCategory(category: string): Project[] {
