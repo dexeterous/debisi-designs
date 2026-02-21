@@ -493,11 +493,8 @@ export const projects: Project[] = [
     year: "2024",
     services: ["Company Profile Design", "Corporate Design", "Layout Design", "Print Production"],
     thumbnail: "/almasaha-mushtarakah-profile-thumbnail.jpg",
-    images: [
-      "/almasaha-mushtarakah-profile-cover.jpg",
-      "/almasaha-mushtarakah-profile-spreads.jpg",
-      "/almasaha-mushtarakah-profile-services.jpg",
-    ],
+    images: [],
+    pdfUrl: "/al-masaha-mushtarakah-profile.pdf",
     challenge:
       "Design a professional company profile for Al-Masaha Al-Mushtarakah that effectively presents their services, capabilities, and market position to potential clients and partners.",
     solution:
