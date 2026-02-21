@@ -492,7 +492,7 @@ export const projects: Project[] = [
     client: "Al-Masaha Al-Mushtarakah",
     year: "2024",
     services: ["Company Profile Design", "Corporate Design", "Layout Design", "Print Production"],
-    thumbnail: "/almasaha-mushtarakah-profile-thumbnail.jpg",
+    thumbnail: "/almasaha-mushtarakah-profile-thumbnail-new.png",
     images: [],
     pdfUrl: "/al-masaha-mushtarakah-profile.pdf",
     challenge:
