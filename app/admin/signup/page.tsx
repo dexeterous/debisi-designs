@@ -36,7 +36,9 @@ export default function AdminSignupPage() {
       return
     }
 
-    const { error } = await supabase.auth.signUp({
+    console.log("[v0] Attempting signup with email:", email)
+    
+    const { data, error } = await supabase.auth.signUp({
       email,
       password,
       options: {
@@ -45,8 +47,18 @@ export default function AdminSignupPage() {
       },
     })
 
+    console.log("[v0] Signup response:", { data, error })
+
     if (error) {
+      console.log("[v0] Signup error:", error)
       setError(error.message)
+      setLoading(false)
+      return
+    }
+    
+    // Check if user was actually created (Supabase may return success but user already exists)
+    if (data?.user?.identities?.length === 0) {
+      setError('An account with this email already exists. Please login instead.')
       setLoading(false)
       return
     }
