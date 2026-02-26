@@ -1,7 +1,8 @@
 import Link from "next/link"
 import Image from "next/image"
 import { notFound } from "next/navigation"
-import { getProjectsByCategory } from "@/lib/projects-data"
+import { getCategoryBySlug, getProjectsByCategory as getDbProjects } from "@/lib/data"
+import { getProjectsByCategory as getStaticProjects } from "@/lib/projects-data"
 
 const categoryNames: Record<string, string> = {
   branding: "Branding",
@@ -14,9 +15,30 @@ const categoryNames: Record<string, string> = {
   elearning: "eLearning Course Designs",
 }
 
-export default function CategoryPage({ params }: { params: { category: string } }) {
-  const projects = getProjectsByCategory(params.category)
-  const categoryName = categoryNames[params.category]
+export default async function CategoryPage({ params }: { params: { category: string } }) {
+  // Try to fetch from database first
+  const dbCategory = await getCategoryBySlug(params.category)
+  const dbProjects = await getDbProjects(params.category)
+  
+  // Fall back to static data if no database results
+  const staticProjects = getStaticProjects(params.category)
+  
+  const categoryName = dbCategory?.name || categoryNames[params.category]
+  const projects = dbProjects.length > 0 
+    ? dbProjects.map(p => ({
+        id: p.slug,
+        title: p.title,
+        description: p.short_description || '',
+        thumbnail: p.cover_image_url || '/placeholder.svg',
+        year: p.year,
+      }))
+    : staticProjects.map(p => ({
+        id: p.id,
+        title: p.title,
+        description: p.description,
+        thumbnail: p.thumbnail,
+        year: p.year,
+      }))
 
   if (!categoryName) {
     notFound()

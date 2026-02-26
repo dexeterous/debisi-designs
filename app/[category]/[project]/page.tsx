@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { notFound } from "next/navigation"
@@ -186,7 +186,7 @@ export default function ProjectDetailPage({ params }: { params: { category: stri
         <section className="py-12 lg:py-20 bg-white">
           <div className="container">
             <h2 className="text-3xl lg:text-4xl font-semibold text-black-100 mb-8 font-bricolage">
-              {project.slug === "calendar-2025-masaha-global" ? "View Calendar" : "View Project"}
+              View Project
             </h2>
             <div className="max-w-4xl mx-auto">
               <div className="bg-background rounded-2xl border border-[#e5e5e5] overflow-hidden shadow-lg">
