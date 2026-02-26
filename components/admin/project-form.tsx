@@ -17,6 +17,9 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { ImageUpload } from './image-upload'
+import { GalleryUpload } from './gallery-upload'
 
 interface ProjectFormProps {
   project?: Project
@@ -310,58 +313,105 @@ export function ProjectForm({ project, categories, existingImages = [] }: Projec
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="coverImage">Cover Image URL</Label>
-            <Input
-              id="coverImage"
-              value={coverImageUrl}
-              onChange={(e) => setCoverImageUrl(e.target.value)}
-              placeholder="/images/project-cover.jpg"
-            />
+            <Label>Cover Image</Label>
+            <Tabs defaultValue="upload" className="w-full">
+              <TabsList className="grid w-full grid-cols-2 max-w-xs">
+                <TabsTrigger value="upload">Upload</TabsTrigger>
+                <TabsTrigger value="url">URL</TabsTrigger>
+              </TabsList>
+              <TabsContent value="upload" className="mt-3">
+                <ImageUpload
+                  value={coverImageUrl}
+                  onChange={setCoverImageUrl}
+                  folder="covers"
+                />
+              </TabsContent>
+              <TabsContent value="url" className="mt-3">
+                <Input
+                  value={coverImageUrl}
+                  onChange={(e) => setCoverImageUrl(e.target.value)}
+                  placeholder="/images/project-cover.jpg or https://..."
+                />
+              </TabsContent>
+            </Tabs>
+            {coverImageUrl && (
+              <p className="text-xs text-muted-foreground truncate">
+                Current: {coverImageUrl}
+              </p>
+            )}
           </div>
 
           <div className="space-y-2">
             <Label>Gallery Images</Label>
-            <div className="flex gap-2">
-              <Input
-                value={newImageUrl}
-                onChange={(e) => setNewImageUrl(e.target.value)}
-                placeholder="Enter image URL"
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') {
-                    e.preventDefault()
-                    addImage()
-                  }
-                }}
-              />
-              <Button type="button" onClick={addImage} variant="outline">
-                <i className="ri-add-line mr-2"></i>
-                Add
-              </Button>
-            </div>
-          </div>
-
-          {images.length > 0 && (
-            <div className="grid grid-cols-4 gap-4">
-              {images.map((img, index) => (
-                <div key={img.id} className="relative group">
-                  <div className="aspect-square rounded-lg overflow-hidden bg-gray-100">
-                    <img
-                      src={img.image_url}
-                      alt={img.alt_text || ''}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => removeImage(index)}
-                    className="absolute top-2 right-2 w-6 h-6 bg-red-500 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
-                  >
-                    <i className="ri-close-line text-sm"></i>
-                  </button>
+            <Tabs defaultValue="upload" className="w-full">
+              <TabsList className="grid w-full grid-cols-2 max-w-xs">
+                <TabsTrigger value="upload">Upload</TabsTrigger>
+                <TabsTrigger value="url">URL</TabsTrigger>
+              </TabsList>
+              <TabsContent value="upload" className="mt-3">
+                <GalleryUpload
+                  value={images.map(img => ({
+                    id: img.id,
+                    image_url: img.image_url,
+                    alt_text: img.alt_text || '',
+                    display_order: img.display_order,
+                  }))}
+                  onChange={(newImages) => {
+                    setImages(newImages.map((img, i) => ({
+                      id: img.id || `temp-${Date.now()}-${i}`,
+                      project_id: project?.id || '',
+                      image_url: img.image_url,
+                      alt_text: img.alt_text,
+                      display_order: img.display_order,
+                      created_at: new Date().toISOString(),
+                    })))
+                  }}
+                  folder="gallery"
+                />
+              </TabsContent>
+              <TabsContent value="url" className="mt-3 space-y-4">
+                <div className="flex gap-2">
+                  <Input
+                    value={newImageUrl}
+                    onChange={(e) => setNewImageUrl(e.target.value)}
+                    placeholder="Enter image URL"
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') {
+                        e.preventDefault()
+                        addImage()
+                      }
+                    }}
+                  />
+                  <Button type="button" onClick={addImage} variant="outline">
+                    <i className="ri-add-line mr-2"></i>
+                    Add
+                  </Button>
                 </div>
-              ))}
-            </div>
-          )}
+                {images.length > 0 && (
+                  <div className="grid grid-cols-4 gap-4">
+                    {images.map((img, index) => (
+                      <div key={img.id} className="relative group">
+                        <div className="aspect-square rounded-lg overflow-hidden bg-muted">
+                          <img
+                            src={img.image_url}
+                            alt={img.alt_text || ''}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => removeImage(index)}
+                          className="absolute top-2 right-2 w-6 h-6 bg-red-500 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
+                        >
+                          <i className="ri-close-line text-sm"></i>
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </TabsContent>
+            </Tabs>
+          </div>
         </CardContent>
       </Card>
 
