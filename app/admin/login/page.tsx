@@ -12,6 +12,7 @@ import {
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
@@ -101,6 +102,12 @@ export default function AdminLoginPage() {
                   >
                     {isLoading ? 'Signing in...' : 'Sign In'}
                   </Button>
+                  <p className="text-center text-sm text-muted-foreground">
+                    Don't have an account?{' '}
+                    <Link href="/admin/signup" className="text-foreground hover:underline">
+                      Create one
+                    </Link>
+                  </p>
                 </div>
               </form>
             </CardContent>
