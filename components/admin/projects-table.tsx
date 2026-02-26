@@ -210,8 +210,11 @@ export function ProjectsTable({ projects, categories }: ProjectsTableProps) {
                         </Link>
                       </DropdownMenuItem>
                       <DropdownMenuItem 
-                        onClick={() => setDeleteId(project.id)}
-                        className="text-red-600 focus:text-red-600"
+                        onSelect={(e) => {
+                          e.preventDefault()
+                          setDeleteId(project.id)
+                        }}
+                        className="text-red-600 focus:text-red-600 cursor-pointer"
                       >
                         <i className="ri-delete-bin-line mr-2"></i>
                         Delete
