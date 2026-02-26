@@ -3,8 +3,9 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { notFound } from "next/navigation"
-import { getProjectById, getProjectsByCategory } from "@/lib/projects-data"
+import { notFound, useRouter } from "next/navigation"
+import { createClient } from "@/lib/supabase/client"
+import { getProjectById, getProjectsByCategory as getStaticProjectsByCategory } from "@/lib/projects-data"
 
 const categoryNames: Record<string, string> = {
   branding: "Branding",
@@ -17,15 +18,151 @@ const categoryNames: Record<string, string> = {
   elearning: "eLearning Course Designs",
 }
 
+interface DbProject {
+  id: string
+  title: string
+  slug: string
+  short_description: string | null
+  full_description: string | null
+  cover_image_url: string | null
+  category_id: string | null
+  technologies: string[]
+  services: string[]
+  client: string | null
+  year: string | null
+  external_link: string | null
+  pdf_url: string | null
+  challenge: string | null
+  solution: string | null
+  process: string[]
+  results: string | null
+  testimonial_quote: string | null
+  testimonial_author: string | null
+  testimonial_role: string | null
+  featured: boolean
+  published: boolean
+  display_order: number
+  created_at: string
+  updated_at: string
+  category?: {
+    id: string
+    name: string
+    slug: string
+  }
+}
+
+interface DbProjectImage {
+  id: string
+  project_id: string
+  image_url: string
+  alt_text: string | null
+  display_order: number
+}
+
 export default function ProjectDetailPage({ params }: { params: { category: string; project: string } }) {
-  const project = getProjectById(params.project)
+  const [dbProject, setDbProject] = useState<DbProject | null>(null)
+  const [dbImages, setDbImages] = useState<DbProjectImage[]>([])
+  const [dbCategoryProjects, setDbCategoryProjects] = useState<DbProject[]>([])
+  const [loading, setLoading] = useState(true)
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
-  if (!project || project.category !== params.category) {
+  // Static fallback data
+  const staticProject = getProjectById(params.project)
+  const staticCategoryProjects = getStaticProjectsByCategory(params.category)
+
+  useEffect(() => {
+    async function fetchProject() {
+      const supabase = createClient()
+
+      // Fetch project by slug
+      const { data: project, error: projectError } = await supabase
+        .from('projects')
+        .select('*, category:categories(*)')
+        .eq('slug', params.project)
+        .eq('published', true)
+        .single()
+
+      if (project && !projectError) {
+        setDbProject(project)
+
+        // Fetch project images
+        const { data: images } = await supabase
+          .from('project_images')
+          .select('*')
+          .eq('project_id', project.id)
+          .order('display_order', { ascending: true })
+
+        setDbImages(images || [])
+
+        // Fetch other projects in same category for navigation
+        if (project.category_id) {
+          const { data: categoryProjects } = await supabase
+            .from('projects')
+            .select('*')
+            .eq('category_id', project.category_id)
+            .eq('published', true)
+            .order('display_order', { ascending: true })
+
+          setDbCategoryProjects(categoryProjects || [])
+        }
+      }
+
+      setLoading(false)
+    }
+
+    fetchProject()
+  }, [params.project])
+
+  // Determine which data to use
+  const useDbData = dbProject !== null
+  
+  const project = useDbData ? {
+    id: dbProject.slug,
+    title: dbProject.title,
+    description: dbProject.full_description || dbProject.short_description || '',
+    thumbnail: dbProject.cover_image_url || '/placeholder.svg',
+    category: dbProject.category?.slug || params.category,
+    client: dbProject.client,
+    year: dbProject.year,
+    services: dbProject.services || [],
+    tools: dbProject.technologies || [],
+    images: dbImages.map(img => img.image_url),
+    challenge: dbProject.challenge,
+    solution: dbProject.solution,
+    process: dbProject.process || [],
+    results: dbProject.results,
+    liveUrl: dbProject.external_link,
+    pdfUrl: dbProject.pdf_url,
+    testimonial: dbProject.testimonial_quote ? {
+      quote: dbProject.testimonial_quote,
+      author: dbProject.testimonial_author || '',
+      role: dbProject.testimonial_role || '',
+    } : null,
+  } : staticProject
+
+  const categoryProjects = useDbData 
+    ? dbCategoryProjects.map(p => ({ id: p.slug, title: p.title }))
+    : staticCategoryProjects.map(p => ({ id: p.id, title: p.title }))
+
+  // Show loading state
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+      </div>
+    )
+  }
+
+  // Check if project exists
+  if (!project) {
     notFound()
   }
 
-  const categoryProjects = getProjectsByCategory(params.category)
+  // Check if category matches (for static data)
+  if (!useDbData && staticProject && staticProject.category !== params.category) {
+    notFound()
+  }
+
   const currentIndex = categoryProjects.findIndex((p) => p.id === params.project)
   const prevProject = currentIndex > 0 ? categoryProjects[currentIndex - 1] : null
   const nextProject = currentIndex < categoryProjects.length - 1 ? categoryProjects[currentIndex + 1] : null
@@ -125,61 +262,63 @@ export default function ProjectDetailPage({ params }: { params: { category: stri
       </section>
 
       {/* Project Images Gallery */}
-      <section className="py-12 lg:py-20">
-        <div className="container">
-          <h2 className="text-3xl lg:text-4xl font-semibold text-black-100 mb-12 font-bricolage">Project Gallery</h2>
-          <div
-            className={
-              params.category === "branding" || params.category === "print-design"
-                ? "flex flex-col items-center gap-6"
-                : "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
-            }
-          >
-            {project.images.map((image, index) =>
-              params.category === "branding" || params.category === "print-design" ? (
-                <div
-                  key={index}
-                  className="relative w-full rounded-xl overflow-hidden cursor-pointer group shadow-md hover:shadow-lg transition-shadow"
-                  onClick={() => setSelectedImage(image)}
-                >
-                  <Image
-                    src={image || "/placeholder.svg"}
-                    alt={`${project.title} - Image ${index + 1}`}
-                    width={1200}
-                    height={800}
-                    className="w-full h-auto group-hover:scale-[1.02] transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-                    <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full text-black-100 text-xs font-medium flex items-center gap-1.5">
-                      <i className="ri-zoom-in-line"></i>
-                      View
-                    </span>
+      {project.images && project.images.length > 0 && (
+        <section className="py-12 lg:py-20">
+          <div className="container">
+            <h2 className="text-3xl lg:text-4xl font-semibold text-black-100 mb-12 font-bricolage">Project Gallery</h2>
+            <div
+              className={
+                params.category === "branding" || params.category === "print-design"
+                  ? "flex flex-col items-center gap-6"
+                  : "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+              }
+            >
+              {project.images.map((image, index) =>
+                params.category === "branding" || params.category === "print-design" ? (
+                  <div
+                    key={index}
+                    className="relative w-full rounded-xl overflow-hidden cursor-pointer group shadow-md hover:shadow-lg transition-shadow"
+                    onClick={() => setSelectedImage(image)}
+                  >
+                    <Image
+                      src={image || "/placeholder.svg"}
+                      alt={`${project.title} - Image ${index + 1}`}
+                      width={1200}
+                      height={800}
+                      className="w-full h-auto group-hover:scale-[1.02] transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                      <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full text-black-100 text-xs font-medium flex items-center gap-1.5">
+                        <i className="ri-zoom-in-line"></i>
+                        View
+                      </span>
+                    </div>
                   </div>
-                </div>
-              ) : (
-                <div
-                  key={index}
-                  className="relative aspect-square rounded-xl overflow-hidden cursor-pointer group shadow-md hover:shadow-lg transition-shadow"
-                  onClick={() => setSelectedImage(image)}
-                >
-                  <Image
-                    src={image || "/placeholder.svg"}
-                    alt={`${project.title} - Image ${index + 1}`}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-                    <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full text-black-100 text-xs font-medium flex items-center gap-1.5">
-                      <i className="ri-zoom-in-line"></i>
-                      View
-                    </span>
+                ) : (
+                  <div
+                    key={index}
+                    className="relative aspect-square rounded-xl overflow-hidden cursor-pointer group shadow-md hover:shadow-lg transition-shadow"
+                    onClick={() => setSelectedImage(image)}
+                  >
+                    <Image
+                      src={image || "/placeholder.svg"}
+                      alt={`${project.title} - Image ${index + 1}`}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                      <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full text-black-100 text-xs font-medium flex items-center gap-1.5">
+                        <i className="ri-zoom-in-line"></i>
+                        View
+                      </span>
+                    </div>
                   </div>
-                </div>
-              ),
-            )}
+                ),
+              )}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* PDF Viewer Section */}
       {project.pdfUrl && (
@@ -212,7 +351,7 @@ export default function ProjectDetailPage({ params }: { params: { category: stri
       )}
 
       {/* Design Process Section */}
-      {(project.challenge || project.solution || project.process || project.results) && (
+      {(project.challenge || project.solution || project.process?.length > 0 || project.results) && (
         <section className="py-12 lg:py-20 bg-white">
           <div className="container">
             <div className="max-w-6xl mx-auto">
