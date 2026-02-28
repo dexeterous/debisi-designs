@@ -1,70 +1,57 @@
 import Link from "next/link"
 import Image from "next/image"
-import { getCategories } from "@/lib/data"
 
-// Default categories for fallback
-const defaultCategories = [
-  {
-    slug: "branding",
-    icon: "ri-book-2-line",
-    name: "Branding",
-    description: "Brand guidelines, style guides, and brand documentation.",
-  },
-  {
-    slug: "print-design",
-    icon: "ri-printer-line",
-    name: "Print Design",
-    description: "Brochures, flyers, posters, and print materials.",
-  },
-  {
-    slug: "social-media",
-    icon: "ri-instagram-line",
-    name: "Social Media",
-    description: "Posts, stories, covers, and social media graphics",
-  },
-  {
-    slug: "presentations",
-    icon: "ri-slideshow-line",
-    name: "Presentations",
-    description: "Pitch decks, slide decks, and presentation design.",
-  },
-  {
-    slug: "videos-motion",
-    icon: "ri-play-circle-line",
-    name: "Videos & Motion",
-    description: "Video editing, motion graphics, and animated content.",
-  },
-  {
-    slug: "photography",
-    icon: "ri-image-2-line",
-    name: "Photography",
-    description: "Portrait, Landscape, Aerial Views, and lot more",
-  },
-  {
-    slug: "web-design",
-    icon: "ri-computer-line",
-    name: "Web Design",
-    description: "Landing Pages, Responsive web designs, Ecommerce",
-  },
-  {
-    slug: "elearning",
-    icon: "ri-book-open-line",
-    name: "eLearning Course Designs",
-    description: "Articulate, Rise 36, LMS and lot more",
-  },
-]
-
-export default async function HomePage() {
-  // Try to fetch categories from database, fall back to defaults
-  const dbCategories = await getCategories()
-  const categories = dbCategories.length > 0 
-    ? dbCategories.map(cat => ({
-        slug: cat.slug,
-        icon: cat.icon || 'ri-folder-line',
-        name: cat.name,
-        description: cat.description || '',
-      }))
-    : defaultCategories
+export default function HomePage() {
+  const categories = [
+    {
+      slug: "branding",
+      icon: "ri-book-2-line",
+      title: "Branding",
+      description: "Brand guidelines, style guides, and brand documentation.",
+    },
+    {
+      slug: "print-design",
+      icon: "ri-printer-line",
+      title: "Print Design",
+      description: "Brochures, flyers, posters, and print materials.",
+    },
+    {
+      slug: "social-media",
+      icon: "ri-instagram-line",
+      title: "Social Media",
+      description: "Posts, stories, covers, and social media graphics",
+    },
+    {
+      slug: "presentations",
+      icon: "ri-slideshow-line",
+      title: "Presentations",
+      description: "Pitch decks, slide decks, and presentation design.",
+    },
+    {
+      slug: "videos-motion",
+      icon: "ri-play-circle-line",
+      title: "Videos & Motion",
+      description: "Video editing, motion graphics, and animated content.",
+    },
+    {
+      slug: "photography",
+      icon: "ri-image-2-line",
+      title: "Photography",
+      description: "Portrait, Landscape, Aerial Views, and lot more",
+    },
+    {
+      slug: "web-design",
+      icon: "ri-computer-line",
+      title: "Web Design",
+      description: "Landing Pages, Responsive web designs, Ecommerce",
+    },
+    {
+      slug: "elearning",
+      icon: "ri-book-open-line",
+      title: "eLearning Course Designs",
+      description: "Articulate, Rise 36, LMS and lot more",
+    },
+  ]
 
   return (
     <div className="min-h-screen bg-background">
@@ -100,7 +87,7 @@ export default async function HomePage() {
                     <i className={`${category.icon} text-5xl text-primary`}></i>
                   </div>
                   <h3 className="text-2xl font-semibold mb-3 text-black-100 group-hover:text-primary transition-colors">
-                    {category.name}
+                    {category.title}
                   </h3>
                   <p className="text-base text-black-100 leading-relaxed">{category.description}</p>
                 </div>

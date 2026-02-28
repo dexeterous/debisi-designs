@@ -1,7 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Suspense } from "react"
-import PageLoader from "@/components/page-loader"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -24,7 +23,7 @@ export default function RootLayout({
         <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
       </head>
       <body>
-        <Suspense fallback={<PageLoader />}>{children}</Suspense>
+        <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
       </body>
     </html>
   )
