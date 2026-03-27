@@ -807,7 +807,7 @@ export const projects: Project[] = [
     services: ["E-commerce Development", "React Development", "Payment Integration", "UI/UX Design"],
     thumbnail: "/razan-fashion-home.jpg",
     images: ["/razan-fashion-home.jpg", "/razan-fashion-products.jpg", "/razan-fashion-checkout.jpg"],
-    liveUrl: "https://razan-fashion.vercel.app",
+    liveUrl: "https://razanfashion.com",
     challenge:
       "Create a modern e-commerce platform that caters to the modest fashion market while providing a seamless shopping experience with secure payment integration and intuitive navigation.",
     solution:
@@ -894,7 +894,7 @@ export const projects: Project[] = [
     services: ["WordPress Development", "LMS Integration", "Course Management", "Student Portal"],
     thumbnail: "/yaseer-institute-home.jpg",
     images: ["/yaseer-institute-home.jpg", "/yaseer-institute-courses.jpg", "/yaseer-institute-dashboard.jpg"],
-    liveUrl: "https://yaseer-institute.org",
+    liveUrl: "https://yaseerinstitute.com",
     challenge:
       "Create an educational platform that provides structured Islamic learning programs for young Muslims with effective course management and student progress tracking.",
     solution:
