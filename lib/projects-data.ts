@@ -964,6 +964,105 @@ export const projects: Project[] = [
       "Created a comprehensive platform that effectively manages humanitarian operations while engaging donors and volunteers through transparent impact reporting.",
     tools: ["WordPress", "PHP", "MySQL", "JavaScript"],
   },
+  {
+    id: "atlanse-solutions",
+    title: "Atlanse Solutions",
+    category: "web-design",
+    description:
+      "IT consulting and strategic business solutions website offering smarter technology services with proven track record and high customer satisfaction.",
+    client: "Atlanse Solutions",
+    year: "2024",
+    services: ["Website Development", "UI/UX Design", "Responsive Design", "SEO Optimization"],
+    thumbnail: "/atlanse-solutions-thumbnail.png",
+    images: ["/atlanse-solutions-thumbnail.png"],
+    liveUrl: "https://atlansesolutions.com",
+    challenge:
+      "Create a professional IT consulting website that communicates complex technology solutions in an accessible way while establishing trust through credibility indicators and case studies.",
+    solution:
+      "Built a modern, responsive website with clear service offerings, compelling statistics (10 years experience, 98% customer satisfaction, 100+ projects), and strategic CTAs that drive consultation bookings.",
+    process: [
+      "Discovery - Analyzed IT consulting market positioning",
+      "Design - Created professional, tech-forward visual design",
+      "Development - Built responsive website with optimized performance",
+      "Content - Crafted compelling service descriptions and trust signals",
+      "Launch - Deployed with SEO and analytics integration",
+    ],
+    results:
+      "Launched a professional platform that effectively communicates IT expertise and drives business inquiries through clear value propositions and credibility indicators.",
+    tools: ["Next.js", "React", "Tailwind CSS", "Vercel"],
+    testimonial: {
+      quote:
+        "The website perfectly represents our professional services and has significantly improved our lead generation.",
+      author: "Atlanse Solutions Team",
+      role: "Client",
+    },
+  },
+  {
+    id: "masaha-global",
+    title: "Masaha Global",
+    category: "web-design",
+    description:
+      "Heavy equipment rental and sales platform featuring product search, equipment categories, and spare parts services for construction and industrial sectors.",
+    client: "Masaha Global",
+    year: "2024",
+    services: ["E-commerce Development", "Product Catalog", "Search Functionality", "UI/UX Design"],
+    thumbnail: "/masaha-global-thumbnail.png",
+    images: ["/masaha-global-thumbnail.png"],
+    liveUrl: "https://masahaglobal.com",
+    challenge:
+      "Develop a comprehensive equipment rental and sales platform that allows users to easily browse, search, and inquire about heavy machinery including wheel loaders, excavators, forklifts, truck mixers, and cranes.",
+    solution:
+      "Created a visually striking platform with intuitive rent/buy search functionality, categorized equipment browsing, and prominent contact features, all set against a distinctive desert-themed design that reflects the Middle Eastern market.",
+    process: [
+      "Research - Mapped equipment categories and user search patterns",
+      "Design - Developed bold visual design with desert imagery",
+      "Development - Built product catalog with search and filtering",
+      "Integration - Connected inquiry and contact systems",
+      "Launch - Deployed with multilingual support",
+    ],
+    results:
+      "Successfully launched an equipment marketplace that streamlines customer inquiries and showcases the full range of rental and sales offerings with high-level maintenance and spare parts availability.",
+    tools: ["WordPress", "WooCommerce", "PHP", "JavaScript"],
+    testimonial: {
+      quote:
+        "The platform has transformed how customers find and inquire about our equipment. The search functionality and visual presentation exceed our expectations.",
+      author: "Masaha Global Team",
+      role: "Client",
+    },
+  },
+  {
+    id: "mmc-website",
+    title: "Al-Musaha Al-Mushtaraka Co. (MMC)",
+    category: "web-design",
+    description:
+      "Infrastructure and road construction company website showcasing 25+ years of expertise in oil sector projects, residential developments, and critical infrastructure networks in Kuwait.",
+    client: "Al-Musaha Al-Mushtaraka Co.",
+    year: "2024",
+    services: ["Website Development", "Corporate Design", "Project Portfolio", "Bilingual Support"],
+    thumbnail: "/mmc-website-thumbnail.png",
+    images: ["/mmc-website-thumbnail.png"],
+    liveUrl: "https://mmc.com.kw",
+    challenge:
+      "Build a professional corporate website that establishes MMC as Kuwait's premier infrastructure and road construction experts, showcasing their extensive project portfolio and industry expertise since 1995.",
+    solution:
+      "Developed a sophisticated bilingual website with striking hero visuals, clear service offerings, project showcases, and prominent CTAs for quote requests, all reinforcing the company's position as a trusted industry leader.",
+    process: [
+      "Strategy - Defined corporate messaging and positioning",
+      "Design - Created premium, construction-industry visual design",
+      "Development - Built responsive bilingual website (EN/AR)",
+      "Content - Organized project portfolio and service offerings",
+      "Launch - Deployed with QHSE compliance documentation",
+    ],
+    results:
+      "Launched a professional corporate platform that effectively communicates MMC's infrastructure expertise and facilitates project inquiries from oil sector, residential, and government clients.",
+    tools: ["Next.js", "React", "Tailwind CSS", "i18n"],
+    testimonial: {
+      quote:
+        "The website reflects our company's professionalism and 25+ years of excellence in infrastructure development. It has become an essential tool for client engagement.",
+      author: "MMC Management",
+      role: "Client",
+    },
+  },
 
   // Photography Projects
   {
