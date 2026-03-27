@@ -797,172 +797,70 @@ export const projects: Project[] = [
 
   // Web Design Projects
   {
-    id: "razan-fashion",
-    title: "Razan Fashion",
+    id: "mmc-website",
+    title: "Al-Musaha Al-Mushtaraka Co. (MMC)",
     category: "web-design",
     description:
-      "Modern modest fashion e-commerce platform specializing in hijabs and Islamic clothing with seamless shopping experience and payment integration.",
-    client: "Razan Fashion",
+      "Infrastructure and road construction company website showcasing 25+ years of expertise in oil sector projects, residential developments, and critical infrastructure networks in Kuwait.",
+    client: "Al-Musaha Al-Mushtaraka Co.",
     year: "2024",
-    services: ["E-commerce Development", "React Development", "Payment Integration", "UI/UX Design"],
-    thumbnail: "/razan-fashion-home.jpg",
-    images: ["/razan-fashion-home.jpg", "/razan-fashion-products.jpg", "/razan-fashion-checkout.jpg"],
-    liveUrl: "https://razanfashion.com",
+    services: ["Website Development", "Corporate Design", "Project Portfolio", "Bilingual Support"],
+    thumbnail: "/mmc-website-thumbnail.png",
+    images: ["/mmc-website-thumbnail.png"],
+    liveUrl: "https://mmc.com.kw",
     challenge:
-      "Create a modern e-commerce platform that caters to the modest fashion market while providing a seamless shopping experience with secure payment integration and intuitive navigation.",
+      "Build a professional corporate website that establishes MMC as Kuwait's premier infrastructure and road construction experts, showcasing their extensive project portfolio and industry expertise since 1995.",
     solution:
-      "Built a responsive React-based e-commerce platform with integrated payment processing, product filtering, and a clean, elegant design that reflects the brand's values and appeals to the target audience.",
+      "Developed a sophisticated bilingual website with striking hero visuals, clear service offerings, project showcases, and prominent CTAs for quote requests, all reinforcing the company's position as a trusted industry leader.",
     process: [
-      "Discovery - Researched modest fashion market and user preferences",
-      "Design - Created wireframes and high-fidelity mockups",
-      "Development - Built React frontend with payment integration",
-      "Testing - Conducted user testing and performance optimization",
-      "Launch - Deployed and monitored initial user feedback",
+      "Strategy - Defined corporate messaging and positioning",
+      "Design - Created premium, construction-industry visual design",
+      "Development - Built responsive bilingual website (EN/AR)",
+      "Content - Organized project portfolio and service offerings",
+      "Launch - Deployed with QHSE compliance documentation",
     ],
     results:
-      "Successfully launched with positive user feedback, achieving smooth checkout flows and increased customer engagement through intuitive product browsing.",
-    tools: ["React", "Next.js", "Stripe", "Tailwind CSS"],
+      "Launched a professional corporate platform that effectively communicates MMC's infrastructure expertise and facilitates project inquiries from oil sector, residential, and government clients.",
+    tools: ["Next.js", "React", "Tailwind CSS", "i18n"],
     testimonial: {
       quote:
-        "The platform perfectly captures our brand essence while providing our customers with an exceptional shopping experience.",
-      author: "Razan Fashion Team",
+        "The website reflects our company's professionalism and 25+ years of excellence in infrastructure development. It has become an essential tool for client engagement.",
+      author: "MMC Management",
       role: "Client",
     },
   },
   {
-    id: "yaseer-foundation",
-    title: "Yaseer Foundation",
+    id: "masaha-global",
+    title: "Masaha Global",
     category: "web-design",
     description:
-      "Islamic educational charity website with donation management, program showcases, and community engagement features for supporting educational initiatives.",
-    client: "Yaseer Foundation",
+      "Web content administration and campaign landing page development for a leading heavy equipment rental and sales platform in the Middle East.",
+    client: "Masaha Global",
     year: "2024",
-    services: ["WordPress Development", "Donation Management", "Content Management", "Responsive Design"],
-    thumbnail: "/yaseer-foundation-home.jpg",
-    images: ["/yaseer-foundation-home.jpg", "/yaseer-foundation-programs.jpg", "/yaseer-foundation-donate.jpg"],
-    liveUrl: "https://yaseer-foundation.org",
+    services: ["Web Content Administration", "Landing Page Design", "Campaign Management", "Content Updates"],
+    thumbnail: "/masaha-global-thumbnail.png",
+    images: ["/masaha-global-thumbnail.png"],
+    liveUrl: "https://masahaglobal.com",
     challenge:
-      "Develop a comprehensive charity website that effectively communicates the foundation's mission, showcases educational programs, and provides a secure donation system to support Islamic educational initiatives.",
+      "Manage ongoing web content updates and create high-converting landing pages for marketing campaigns promoting heavy equipment rental and sales services across the Middle Eastern market.",
     solution:
-      "Created a WordPress-based website with custom donation management, program showcases, and engaging content sections that inspire community support and clearly communicate the foundation's impact.",
+      "Served as Web Content Administrator, maintaining website content accuracy, creating targeted campaign landing pages, and ensuring consistent brand messaging across all digital touchpoints for equipment rental promotions and seasonal offers.",
     process: [
-      "Planning - Defined site structure and donation workflows",
-      "Design - Developed brand-aligned visual design",
-      "Development - Built custom WordPress theme with donation features",
-      "Content - Organized programs and impact stories",
-      "Optimization - Enhanced performance and SEO",
+      "Content Strategy - Planned campaign-specific landing pages",
+      "Page Development - Designed and built conversion-focused landing pages",
+      "Content Management - Updated product listings and service information",
+      "Campaign Support - Created promotional pages for marketing initiatives",
+      "Optimization - Monitored performance and refined page content",
     ],
     results:
-      "Launched a professional charity website that effectively engages donors and showcases educational programs, resulting in increased community awareness and support.",
-    tools: ["WordPress", "PHP", "MySQL", "CSS"],
-  },
-  {
-    id: "alawnu-foundation",
-    title: "Alawnu Foundation",
-    category: "web-design",
-    description:
-      "Humanitarian organization website with donation management, campaign showcases, and community outreach programs for supporting those in need.",
-    client: "Alawnu Foundation",
-    year: "2024",
-    services: ["Vue.js Development", "Campaign Management", "Donation System", "UI/UX Design"],
-    thumbnail: "/alawnu-foundation-home.jpg",
-    images: ["/alawnu-foundation-home.jpg", "/alawnu-foundation-campaigns.jpg", "/alawnu-foundation-impact.jpg"],
-    liveUrl: "https://alawnu.org",
-    challenge:
-      "Build a dynamic humanitarian organization website that showcases ongoing campaigns, manages donations effectively, and engages the community in outreach programs.",
-    solution:
-      "Developed a Vue.js-powered website with interactive campaign displays, secure donation processing, and compelling storytelling that motivates community involvement in humanitarian efforts.",
-    process: [
-      "Research - Analyzed humanitarian sector best practices",
-      "Architecture - Designed scalable Vue.js application structure",
-      "Development - Built interactive components and donation flows",
-      "Integration - Connected payment and campaign management systems",
-      "Launch - Deployed with monitoring and analytics",
-    ],
-    results:
-      "Created an engaging platform that effectively communicates the foundation's humanitarian mission and facilitates community support through streamlined donation processes.",
-    tools: ["Vue.js", "Nuxt.js", "Node.js", "Tailwind CSS"],
-  },
-  {
-    id: "yaseer-institute",
-    title: "Yaseer Institute",
-    category: "web-design",
-    description:
-      "Islamic educational platform offering structured learning programs for young Muslims with course management and progress tracking features.",
-    client: "Yaseer Institute",
-    year: "2024",
-    services: ["WordPress Development", "LMS Integration", "Course Management", "Student Portal"],
-    thumbnail: "/yaseer-institute-home.jpg",
-    images: ["/yaseer-institute-home.jpg", "/yaseer-institute-courses.jpg", "/yaseer-institute-dashboard.jpg"],
-    liveUrl: "https://yaseerinstitute.com",
-    challenge:
-      "Create an educational platform that provides structured Islamic learning programs for young Muslims with effective course management and student progress tracking.",
-    solution:
-      "Built a WordPress-based learning management system with course organization, progress tracking, and an intuitive student portal that makes Islamic education accessible and engaging.",
-    process: [
-      "Requirements - Gathered educational program needs",
-      "Design - Created student-friendly interface designs",
-      "Development - Implemented LMS features and course structure",
-      "Testing - Validated learning workflows with students",
-      "Deployment - Launched with instructor training",
-    ],
-    results:
-      "Successfully launched an educational platform that provides structured learning experiences, helping young Muslims engage with Islamic education in an organized and accessible way.",
-    tools: ["WordPress", "LearnDash", "PHP", "JavaScript"],
-  },
-  {
-    id: "triplexon",
-    title: "Triplexon",
-    category: "web-design",
-    description:
-      "Industrial services platform providing expert consultation and immediate access to specialized help for oil, gas, and industrial sectors.",
-    client: "Triplexon",
-    year: "2024",
-    services: ["WordPress Development", "Service Portal", "Consultation Booking", "Industry Solutions"],
-    thumbnail: "/triplexon-home.jpg",
-    images: ["/triplexon-home.jpg", "/triplexon-services.jpg", "/triplexon-consultation.jpg"],
-    liveUrl: "https://triplexon.com",
-    challenge:
-      "Develop a professional industrial services platform that connects clients with expert consultation and specialized help in the oil, gas, and industrial sectors.",
-    solution:
-      "Created a WordPress-based platform with service showcases, consultation booking, and industry-specific solutions that establish credibility and facilitate client engagement.",
-    process: [
-      "Discovery - Researched industrial sector requirements",
-      "Strategy - Defined service offerings and user journeys",
-      "Design - Developed professional, industry-appropriate design",
-      "Development - Built service portal and booking system",
-      "Launch - Deployed with client onboarding support",
-    ],
-    results:
-      "Launched a professional platform that effectively showcases industrial expertise and provides clients with easy access to specialized consultation services.",
-    tools: ["WordPress", "PHP", "MySQL", "CSS"],
-  },
-  {
-    id: "alf-foundation",
-    title: "Alf Foundation",
-    category: "web-design",
-    description:
-      "Al-Farouk Humanitarian Foundation website with donation management, volunteer coordination, and impact tracking for humanitarian aid programs.",
-    client: "Al-Farouk Humanitarian Foundation",
-    year: "2024",
-    services: ["WordPress Development", "Donation Platform", "Volunteer Management", "Impact Reporting"],
-    thumbnail: "/alf-foundation-home.jpg",
-    images: ["/alf-foundation-home.jpg", "/alf-foundation-programs.jpg", "/alf-foundation-volunteer.jpg"],
-    liveUrl: "https://alf-foundation.org",
-    challenge:
-      "Build a comprehensive humanitarian foundation website that manages donations, coordinates volunteers, and tracks impact across multiple aid programs.",
-    solution:
-      "Developed a WordPress-based platform with integrated donation management, volunteer coordination tools, and impact reporting that demonstrates the foundation's humanitarian work.",
-    process: [
-      "Planning - Mapped donation and volunteer workflows",
-      "Design - Created compassionate, mission-driven design",
-      "Development - Built donation and volunteer management features",
-      "Content - Organized programs and impact stories",
-      "Launch - Deployed with training for foundation staff",
-    ],
-    results:
-      "Created a comprehensive platform that effectively manages humanitarian operations while engaging donors and volunteers through transparent impact reporting.",
-    tools: ["WordPress", "PHP", "MySQL", "JavaScript"],
+      "Successfully managed web content and delivered multiple campaign landing pages that supported marketing initiatives, improved user engagement, and drove equipment inquiries through targeted promotional content.",
+    tools: ["WordPress", "Elementor", "Google Analytics", "SEO Tools"],
+    testimonial: {
+      quote:
+        "The campaign landing pages have been instrumental in our marketing success. The content management has kept our website fresh and relevant.",
+      author: "Masaha Global Team",
+      role: "Client",
+    },
   },
   {
     id: "atlanse-solutions",
@@ -998,68 +896,170 @@ export const projects: Project[] = [
     },
   },
   {
-    id: "masaha-global",
-    title: "Masaha Global",
+    id: "alf-foundation",
+    title: "Alf Foundation",
     category: "web-design",
     description:
-      "Heavy equipment rental and sales platform featuring product search, equipment categories, and spare parts services for construction and industrial sectors.",
-    client: "Masaha Global",
+      "Al-Farouk Humanitarian Foundation website with donation management, volunteer coordination, and impact tracking for humanitarian aid programs.",
+    client: "Al-Farouk Humanitarian Foundation",
     year: "2024",
-    services: ["E-commerce Development", "Product Catalog", "Search Functionality", "UI/UX Design"],
-    thumbnail: "/masaha-global-thumbnail.png",
-    images: ["/masaha-global-thumbnail.png"],
-    liveUrl: "https://masahaglobal.com",
+    services: ["WordPress Development", "Donation Platform", "Volunteer Management", "Impact Reporting"],
+    thumbnail: "/alf-foundation-home.jpg",
+    images: ["/alf-foundation-home.jpg", "/alf-foundation-programs.jpg", "/alf-foundation-volunteer.jpg"],
+    liveUrl: "https://alf-foundation.org",
     challenge:
-      "Develop a comprehensive equipment rental and sales platform that allows users to easily browse, search, and inquire about heavy machinery including wheel loaders, excavators, forklifts, truck mixers, and cranes.",
+      "Build a comprehensive humanitarian foundation website that manages donations, coordinates volunteers, and tracks impact across multiple aid programs.",
     solution:
-      "Created a visually striking platform with intuitive rent/buy search functionality, categorized equipment browsing, and prominent contact features, all set against a distinctive desert-themed design that reflects the Middle Eastern market.",
+      "Developed a WordPress-based platform with integrated donation management, volunteer coordination tools, and impact reporting that demonstrates the foundation's humanitarian work.",
     process: [
-      "Research - Mapped equipment categories and user search patterns",
-      "Design - Developed bold visual design with desert imagery",
-      "Development - Built product catalog with search and filtering",
-      "Integration - Connected inquiry and contact systems",
-      "Launch - Deployed with multilingual support",
+      "Planning - Mapped donation and volunteer workflows",
+      "Design - Created compassionate, mission-driven design",
+      "Development - Built donation and volunteer management features",
+      "Content - Organized programs and impact stories",
+      "Launch - Deployed with training for foundation staff",
     ],
     results:
-      "Successfully launched an equipment marketplace that streamlines customer inquiries and showcases the full range of rental and sales offerings with high-level maintenance and spare parts availability.",
-    tools: ["WordPress", "WooCommerce", "PHP", "JavaScript"],
-    testimonial: {
-      quote:
-        "The platform has transformed how customers find and inquire about our equipment. The search functionality and visual presentation exceed our expectations.",
-      author: "Masaha Global Team",
-      role: "Client",
-    },
+      "Created a comprehensive platform that effectively manages humanitarian operations while engaging donors and volunteers through transparent impact reporting.",
+    tools: ["WordPress", "PHP", "MySQL", "JavaScript"],
   },
   {
-    id: "mmc-website",
-    title: "Al-Musaha Al-Mushtaraka Co. (MMC)",
+    id: "triplexon",
+    title: "Triplexon",
     category: "web-design",
     description:
-      "Infrastructure and road construction company website showcasing 25+ years of expertise in oil sector projects, residential developments, and critical infrastructure networks in Kuwait.",
-    client: "Al-Musaha Al-Mushtaraka Co.",
+      "Industrial services platform providing expert consultation and immediate access to specialized help for oil, gas, and industrial sectors.",
+    client: "Triplexon",
     year: "2024",
-    services: ["Website Development", "Corporate Design", "Project Portfolio", "Bilingual Support"],
-    thumbnail: "/mmc-website-thumbnail.png",
-    images: ["/mmc-website-thumbnail.png"],
-    liveUrl: "https://mmc.com.kw",
+    services: ["WordPress Development", "Service Portal", "Consultation Booking", "Industry Solutions"],
+    thumbnail: "/triplexon-home.jpg",
+    images: ["/triplexon-home.jpg", "/triplexon-services.jpg", "/triplexon-consultation.jpg"],
+    liveUrl: "https://triplexon.com",
     challenge:
-      "Build a professional corporate website that establishes MMC as Kuwait's premier infrastructure and road construction experts, showcasing their extensive project portfolio and industry expertise since 1995.",
+      "Develop a professional industrial services platform that connects clients with expert consultation and specialized help in the oil, gas, and industrial sectors.",
     solution:
-      "Developed a sophisticated bilingual website with striking hero visuals, clear service offerings, project showcases, and prominent CTAs for quote requests, all reinforcing the company's position as a trusted industry leader.",
+      "Created a WordPress-based platform with service showcases, consultation booking, and industry-specific solutions that establish credibility and facilitate client engagement.",
     process: [
-      "Strategy - Defined corporate messaging and positioning",
-      "Design - Created premium, construction-industry visual design",
-      "Development - Built responsive bilingual website (EN/AR)",
-      "Content - Organized project portfolio and service offerings",
-      "Launch - Deployed with QHSE compliance documentation",
+      "Discovery - Researched industrial sector requirements",
+      "Strategy - Defined service offerings and user journeys",
+      "Design - Developed professional, industry-appropriate design",
+      "Development - Built service portal and booking system",
+      "Launch - Deployed with client onboarding support",
     ],
     results:
-      "Launched a professional corporate platform that effectively communicates MMC's infrastructure expertise and facilitates project inquiries from oil sector, residential, and government clients.",
-    tools: ["Next.js", "React", "Tailwind CSS", "i18n"],
+      "Launched a professional platform that effectively showcases industrial expertise and provides clients with easy access to specialized consultation services.",
+    tools: ["WordPress", "PHP", "MySQL", "CSS"],
+  },
+  {
+    id: "yaseer-institute",
+    title: "Yaseer Institute",
+    category: "web-design",
+    description:
+      "Islamic educational platform offering structured learning programs for young Muslims with course management and progress tracking features.",
+    client: "Yaseer Institute",
+    year: "2024",
+    services: ["WordPress Development", "LMS Integration", "Course Management", "Student Portal"],
+    thumbnail: "/yaseer-institute-home.jpg",
+    images: ["/yaseer-institute-home.jpg", "/yaseer-institute-courses.jpg", "/yaseer-institute-dashboard.jpg"],
+    liveUrl: "https://yaseerinstitute.com",
+    challenge:
+      "Create an educational platform that provides structured Islamic learning programs for young Muslims with effective course management and student progress tracking.",
+    solution:
+      "Built a WordPress-based learning management system with course organization, progress tracking, and an intuitive student portal that makes Islamic education accessible and engaging.",
+    process: [
+      "Requirements - Gathered educational program needs",
+      "Design - Created student-friendly interface designs",
+      "Development - Implemented LMS features and course structure",
+      "Testing - Validated learning workflows with students",
+      "Deployment - Launched with instructor training",
+    ],
+    results:
+      "Successfully launched an educational platform that provides structured learning experiences, helping young Muslims engage with Islamic education in an organized and accessible way.",
+    tools: ["WordPress", "LearnDash", "PHP", "JavaScript"],
+  },
+  {
+    id: "alawnu-foundation",
+    title: "Alawnu Foundation",
+    category: "web-design",
+    description:
+      "Humanitarian organization website with donation management, campaign showcases, and community outreach programs for supporting those in need.",
+    client: "Alawnu Foundation",
+    year: "2024",
+    services: ["Vue.js Development", "Campaign Management", "Donation System", "UI/UX Design"],
+    thumbnail: "/alawnu-foundation-home.jpg",
+    images: ["/alawnu-foundation-home.jpg", "/alawnu-foundation-campaigns.jpg", "/alawnu-foundation-impact.jpg"],
+    liveUrl: "https://alawnu.org",
+    challenge:
+      "Build a dynamic humanitarian organization website that showcases ongoing campaigns, manages donations effectively, and engages the community in outreach programs.",
+    solution:
+      "Developed a Vue.js-powered website with interactive campaign displays, secure donation processing, and compelling storytelling that motivates community involvement in humanitarian efforts.",
+    process: [
+      "Research - Analyzed humanitarian sector best practices",
+      "Architecture - Designed scalable Vue.js application structure",
+      "Development - Built interactive components and donation flows",
+      "Integration - Connected payment and campaign management systems",
+      "Launch - Deployed with monitoring and analytics",
+    ],
+    results:
+      "Created an engaging platform that effectively communicates the foundation's humanitarian mission and facilitates community support through streamlined donation processes.",
+    tools: ["Vue.js", "Nuxt.js", "Node.js", "Tailwind CSS"],
+  },
+  {
+    id: "yaseer-foundation",
+    title: "Yaseer Foundation",
+    category: "web-design",
+    description:
+      "Islamic educational charity website with donation management, program showcases, and community engagement features for supporting educational initiatives.",
+    client: "Yaseer Foundation",
+    year: "2024",
+    services: ["WordPress Development", "Donation Management", "Content Management", "Responsive Design"],
+    thumbnail: "/yaseer-foundation-home.jpg",
+    images: ["/yaseer-foundation-home.jpg", "/yaseer-foundation-programs.jpg", "/yaseer-foundation-donate.jpg"],
+    liveUrl: "https://yaseer-foundation.org",
+    challenge:
+      "Develop a comprehensive charity website that effectively communicates the foundation's mission, showcases educational programs, and provides a secure donation system to support Islamic educational initiatives.",
+    solution:
+      "Created a WordPress-based website with custom donation management, program showcases, and engaging content sections that inspire community support and clearly communicate the foundation's impact.",
+    process: [
+      "Planning - Defined site structure and donation workflows",
+      "Design - Developed brand-aligned visual design",
+      "Development - Built custom WordPress theme with donation features",
+      "Content - Organized programs and impact stories",
+      "Optimization - Enhanced performance and SEO",
+    ],
+    results:
+      "Launched a professional charity website that effectively engages donors and showcases educational programs, resulting in increased community awareness and support.",
+    tools: ["WordPress", "PHP", "MySQL", "CSS"],
+  },
+  {
+    id: "razan-fashion",
+    title: "Razan Fashion",
+    category: "web-design",
+    description:
+      "Modern modest fashion e-commerce platform specializing in hijabs and Islamic clothing with seamless shopping experience and payment integration.",
+    client: "Razan Fashion",
+    year: "2024",
+    services: ["E-commerce Development", "React Development", "Payment Integration", "UI/UX Design"],
+    thumbnail: "/razan-fashion-home.jpg",
+    images: ["/razan-fashion-home.jpg", "/razan-fashion-products.jpg", "/razan-fashion-checkout.jpg"],
+    liveUrl: "https://razanfashion.com",
+    challenge:
+      "Create a modern e-commerce platform that caters to the modest fashion market while providing a seamless shopping experience with secure payment integration and intuitive navigation.",
+    solution:
+      "Built a responsive React-based e-commerce platform with integrated payment processing, product filtering, and a clean, elegant design that reflects the brand's values and appeals to the target audience.",
+    process: [
+      "Discovery - Researched modest fashion market and user preferences",
+      "Design - Created wireframes and high-fidelity mockups",
+      "Development - Built React frontend with payment integration",
+      "Testing - Conducted user testing and performance optimization",
+      "Launch - Deployed and monitored initial user feedback",
+    ],
+    results:
+      "Successfully launched with positive user feedback, achieving smooth checkout flows and increased customer engagement through intuitive product browsing.",
+    tools: ["React", "Next.js", "Stripe", "Tailwind CSS"],
     testimonial: {
       quote:
-        "The website reflects our company's professionalism and 25+ years of excellence in infrastructure development. It has become an essential tool for client engagement.",
-      author: "MMC Management",
+        "The platform perfectly captures our brand essence while providing our customers with an exceptional shopping experience.",
+      author: "Razan Fashion Team",
       role: "Client",
     },
   },
